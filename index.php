@@ -17,27 +17,36 @@
 
         <div>
             Cupcake flavors:
-
-            <input type="checkbox" name="flavors[]" id="grasshopper" value="The Grasshopper">
-            <label for="grasshopper">The Grasshopper</label>
-
-            <input type="checkbox" name="flavors[]" id="maple" value="Whiskey Maple Bacon">
-            <label for="maple">Whiskey Maple Bacon</label>
-
-            <input type="checkbox" name="flavors[]" id="carrot" value="Carrot Walnut">
-            <label for="carrot">Carrot Walnut</label>
-
-            <input type="checkbox" name="flavors[]" id="caramel" value="Salted Caramel Cupcake">
-            <label for="caramel">Salted Caramel Cupcake</label>
-
-            <input type="checkbox" name="flavors[]" id="velvet" value="Red Velvet">
-            <label for="velvet">Red Velvet</label>
-
-            <input type="checkbox" name="flavors[]" id="lemon" value="Lemon Drop">
-            <label for="lemon">Lemon Drop</label>
-
-            <input type="checkbox" name="flavors[]" id="tiramisu" value="Tiramisu">
-            <label for="tiramisu">Tiramisu</label>
+            <ul>
+                <li>
+                    <input type="checkbox" name="flavors[]" id="grasshopper" value="The Grasshopper">
+                    <label for="grasshopper">The Grasshopper</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="flavors[]" id="maple" value="Whiskey Maple Bacon">
+                    <label for="maple">Whiskey Maple Bacon</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="flavors[]" id="carrot" value="Carrot Walnut">
+                    <label for="carrot">Carrot Walnut</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="flavors[]" id="caramel" value="Salted Caramel Cupcake">
+                    <label for="caramel">Salted Caramel Cupcake</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="flavors[]" id="velvet" value="Red Velvet">
+                    <label for="velvet">Red Velvet</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="flavors[]" id="lemon" value="Lemon Drop">
+                    <label for="lemon">Lemon Drop</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="flavors[]" id="tiramisu" value="Tiramisu">
+                    <label for="tiramisu">Tiramisu</label>
+                </li>
+            </ul>
         </div>
 
     </form>
