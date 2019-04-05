@@ -8,6 +8,8 @@
     <title>Cupcakes</title>
 </head>
 <body>
+    <h1>Cupcake Fundraiser</h1>
+
     <form>
         <div>
             <label for="name">Your name:
