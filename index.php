@@ -13,7 +13,7 @@
     <form>
         <div>
             <label for="name">Your name:
-                <input name="name" type="text">
+                <input id="name" type="text" placeholder="Please input your name">
             </label>
         </div>
 
@@ -51,6 +51,7 @@
             </ul>
         </div>
 
+        <button type="submit">Order</button>
     </form>
 
 </body>
