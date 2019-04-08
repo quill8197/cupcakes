@@ -19,7 +19,7 @@
     $output .= '<form method="post" action=" '.$_SERVER['php_self'].'">
         <label for="name">Your name:
             <input name="name" id="name" type="text" placeholder="Please input your name"
-                   value=' .$_POST["name"]. ' required>
+                   value=' .$_POST["name"]. '>
         </label>
         <p>Cupcake Flavors: </p><ul>';
 
@@ -29,12 +29,16 @@
         'velvet' => 'Red_Velvet', 'lemon' => 'Lemon_Drop',
         'tiramisu' => 'Tiramisu');
 
+    //track the checked flavors
+    $checked_flavors = '';
+
     //create sticky checkboxes
     foreach ($flavors as $id => $name)
     {
         if($_POST[$name]=="on")
         {
             $checked = "checked"; // if box is checked, set $checked to "checked"
+            $checked_flavors[] = $name; //add the flavor to the checked flavors array
         }
         else
         {
@@ -56,24 +60,33 @@
     //check for form submission
     if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
-        if (empty($_POST['flavors'])) //if no flavors selected
+        if (empty($_POST['name'])) //if no name is entered
         {
-            echo '<p>You must select at least one flavor.</p>';
+            echo '<p>You must enter your name.';
         }
-        else //display the order information
+        else //check if flavors selected
         {
-            echo "<p>Thank you, " . $_POST['name'] . ', for your order!</p>';
-
-            echo 'Order summary <ul>';
-            foreach ($_POST['flavors'] as $flavor)
+            if (empty($checked_flavors)) //if no flavors selected
             {
-                if (isset($flavor) == 1)
-                {
-                    echo "<li>$flavor</li>";
-                }
+                echo '<p>You must select at least one flavor.</p>';
             }
-            echo '</ul>';
+            else //display the order information
+            {
+                echo "<p>Thank you, " . $_POST['name'] . ', for your order!</p>';
+
+                echo 'Order summary <ul>';
+                foreach ($flavors as $id => $name)
+                {
+                    if (isset($_POST[$name]) == "on" || isset($_POST[$name]) == 1)
+                    {
+                        echo "<li>$name</li>";
+                    }
+                }
+
+                echo '</ul>';
+            }
         }
+
     }
     ?>
 
