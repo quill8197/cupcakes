@@ -82,8 +82,12 @@
                         echo "<li>$name</li>";
                     }
                 }
-
                 echo '</ul>';
+
+                //Display order total
+                $total = count($checked_flavors) * 3.50;
+
+                echo 'Order total: $' . number_format($total, 2);
             }
         }
 
