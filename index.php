@@ -28,6 +28,8 @@
         'carrot' => 'Carrot_Walnut', 'caramel' => 'Salted_Caramel_Cupcake',
         'velvet' => 'Red_Velvet', 'lemon' => 'Lemon_Drop',
         'tiramisu' => 'Tiramisu');
+
+    //create sticky checkboxes
     foreach ($flavors as $id => $name)
     {
         if($_POST[$name]=="on")
@@ -50,17 +52,15 @@
     // end the ul element, create a submit button, and end the form
     $output .=  '</ul><input type="submit" name="Submit" value="Order"></form>';
     echo $output;
-    ?>
 
-    <?php
     //check for form submission
     if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
-        if (empty($_POST['flavors']))
+        if (empty($_POST['flavors'])) //if no flavors selected
         {
             echo '<p>You must select at least one flavor.</p>';
         }
-        else
+        else //display the order information
         {
             echo "<p>Thank you, " . $_POST['name'] . ', for your order!</p>';
 
@@ -75,7 +75,6 @@
             echo '</ul>';
         }
     }
-
     ?>
 
 </body>
