@@ -1,3 +1,9 @@
+<!--
+Name: Quill McConnell
+File: index.php
+Date: 4/8/19
+Description: A web page for a cupcake fundraiser.
+-->
 <!doctype html>
 <html lang="en">
 <head>
