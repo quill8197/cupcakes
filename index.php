@@ -17,9 +17,6 @@ Description: A web page for a cupcake fundraiser.
     <h1>Cupcake Fundraiser</h1>
 
     <?php
-    //for testing purposes: displays the checked items
-    var_dump($_POST);
-
     //begin the body's form
     $output = '';
     $output .= '<form method="post" action=" '.$_SERVER['php_self'].'">
