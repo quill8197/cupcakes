@@ -13,10 +13,87 @@
     <form action="index.php" method="post">
         <div>
             <label for="name">Your name:
-                <input name="name" id="name" type="text" placeholder="Please input your name" required>
+                <input name="name" id="name" type="text" placeholder="Please input your name"
+                       value="<?php echo $_POST['name']; ?>" required>
             </label>
         </div>
 
+        <?php
+        $flavor_names = array("The_Grasshopper","Whiskey_Maple_Bacon","Carrot_Walnut",
+            "Salted_Caramel_Cupcake","Red_Velvet", "Lemon_Drop", "Tiramisu"); // Array with check box names. Five items = five check boxes.
+        $flavor_ids = array('grasshopper', 'maple', 'carrot',
+            'caramel', 'velvet', 'lemon', 'tiramisu');
+
+        var_dump($_POST); // Here so that you can see the POST values, which depend on what is checked. Items unchecked will not be in POST.
+
+        $output = '';
+        $output .= '<form method="post" action=" '.$_SERVER['php_self'].'">
+            <p>Cupcake Flavors: </p><ul>';
+
+        $flavors = array(
+            'grasshopper' => 'The_Grasshopper', 'maple' => 'Whiskey_Maple_Bacon',
+            'carrot' => 'Carrot_Walnut', 'caramel' => 'Salted_Caramel_Cupcake',
+            'velvet' => 'Red_Velvet', 'lemon' => 'Lemon_Drop',
+            'tiramisu' => 'Tiramisu');
+        foreach ($flavors as $id => $name)
+        {
+            if($_POST[$name]=="on")
+            {
+            $checked = "checked"; // if box is checked, set $checked to "checked"
+            }
+            else
+            {
+                unset($checked); // if box is unchecked, set $checked to null.
+            }
+
+            $selection = $name; // The text that the user sees can be anything. Here were using the checkbox name so that you can see that it matches up.
+	        $output .=  "<li><input type = 'checkbox' $checked name=$name id=$id>$selection</li>"; // Having set the variables, we set the checkbox html.
+
+	    } // This is the end of the loop. We either start over on the next box, or after the last one, we proceed to the submit button.
+
+        $output .=  '</ul><input type="submit" name="Submit" value="Order"></form><br>'; // This sets up the submit button.
+        echo $output;
+        ?>
+
+        <?php/*
+        // Array with check box names.
+        $flavor_values = array("The_Grasshopper", "Whiskey_Maple_Bacon", "Carrot_Walnut",
+            "Salted_Caramel_Cupcake", "Red_Velvet", "Lemon_Drop", "Tiramisu");
+        $flavor_ids = array('grasshopper', 'maple', 'carrot',
+            'caramel', 'velvet', 'lemon', 'tiramisu');
+
+        var_dump($_POST);
+
+        $output = '';
+        $output .= '<form method="post" action=" '.$_SERVER['php_self'].'">';
+
+        // set flavor values and check the previously checked checkboxes
+        foreach ($flavor_values as $flavor_value)
+        {
+            if($_POST[$flavor_value]=="on")
+            {
+                $checked = "checked"; // if box is checked, set $checked to "checked"
+            }
+            else
+            {
+                unset($checked); // if box is unchecked, set $checked to null.
+            }
+
+            // Checkbox value/name
+            $selection = $flavor_value;
+
+            // This is the end of the loop. We either start over on the next box, or
+            // after the last one, we proceed to the submit button.
+            // Having set the variables, we set the checkbox html.
+            $output .=  "<input type = 'checkbox' ".$checked." name= ".$checkbox." >".$selection."<br>"; // Having set the variables, we set the checkbox html.
+        }
+
+        // This sets up the submit button.
+        $output .=  '<input type="submit" name="Submit" value="Click here to order"></form><br>';
+        echo $output;
+        */?>
+
+        <!--
         <div>
             Cupcake flavors:
             <ul>
@@ -51,14 +128,14 @@
             </ul>
         </div>
 
-        <button type="submit">Order</button>
+
+        <button type="submit">Order</button>-->
     </form>
 
     <?php
     //check for form submission
     if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
-
         if (empty($_POST['flavors']))
         {
             echo '<p>You must select at least one flavor.</p>';
