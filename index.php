@@ -10,10 +10,10 @@
 <body>
     <h1>Cupcake Fundraiser</h1>
 
-    <form>
+    <form action="index.php" method="post">
         <div>
             <label for="name">Your name:
-                <input id="name" type="text" placeholder="Please input your name">
+                <input name="name" id="name" type="text" placeholder="Please input your name" required>
             </label>
         </div>
 
@@ -53,6 +53,33 @@
 
         <button type="submit">Order</button>
     </form>
+
+    <?php
+    //check for form submission
+    if ($_SERVER['REQUEST_METHOD'] == 'POST')
+    {
+
+        if (empty($_POST['flavors']))
+        {
+            echo '<p>You must select at least one flavor.</p>';
+        }
+        else
+        {
+            echo "<p>Thank you, " . $_POST['name'] . ', for your order!</p>';
+
+            echo 'Order summary <ul>';
+            foreach ($_POST['flavors'] as $flavor)
+            {
+                if (isset($flavor) == 1)
+                {
+                    echo "<li>$flavor</li>";
+                }
+            }
+            echo '</ul>';
+        }
+    }
+
+    ?>
 
 </body>
 </html>
